@@ -6,15 +6,9 @@ plugins {
 
 kotlin {
     android()
-    
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach {
-        it.binaries.framework {
-            baseName = "shared"
-        }
+
+    listOf(iosX64(), iosArm64(), iosSimulatorArm64()).forEach {
+        it.binaries.framework { baseName = "shared" }
     }
 
     sourceSets {
@@ -24,24 +18,16 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
             }
         }
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
-        }
+        val commonTest by getting { dependencies { implementation(kotlin("test")) } }
         val androidMain by getting {
-            dependencies {
-                implementation("com.squareup.sqldelight:android-driver:1.5.3")
-            }
+            dependencies { implementation("com.squareup.sqldelight:android-driver:1.5.3") }
         }
         val androidTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
         val iosMain by creating {
-            dependencies {
-                implementation("com.squareup.sqldelight:native-driver:1.5.3")
-            }
+            dependencies { implementation("com.squareup.sqldelight:native-driver:1.5.3") }
 
             dependsOn(commonMain)
             iosX64Main.dependsOn(this)
