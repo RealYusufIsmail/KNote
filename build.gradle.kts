@@ -26,7 +26,6 @@ allprojects {
 
 subprojects {
     apply(plugin = "com.diffplug.spotless")
-    apply(plugin = "jacoco")
 
     spotless {
         kotlin {
@@ -64,25 +63,24 @@ subprojects {
         }
     }
 
-
-    tasks.withType<Test> {
-        useJUnitPlatform()
-        finalizedBy(tasks.withType(JacocoReport::class.java))
-    }
-
-    tasks.withType<JacocoReport> {
-        group = "Reporting"
-        description = "Generate Jacoco coverage reports after running tests."
-        reports {
-            xml.required.set(true)
-            html.required.set(true)
-        }
-        finalizedBy("jacocoTestCoverageVerification")
-    }
-
     configurations { all { exclude(group = "org.slf4j", module = "slf4j-log4j12") } }
 }
 
 tasks.register("delete", Delete::class) {
     delete(rootProject.buildDir)
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
+    finalizedBy(tasks.withType(JacocoReport::class.java))
+}
+
+tasks.withType<JacocoReport> {
+    group = "Reporting"
+    description = "Generate Jacoco coverage reports after running tests."
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
+    finalizedBy("jacocoTestCoverageVerification")
 }
