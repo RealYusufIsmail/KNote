@@ -38,5 +38,5 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview:1.3.0")
     implementation("androidx.compose.foundation:foundation:1.3.0")
     implementation("androidx.compose.material:material:1.3.0")
-    implementation("androidx.activity:activity-compose:1.6.0")
+    implementation("androidx.activity:activity-compose:1.6.1")
 }
