@@ -3,7 +3,7 @@ plugins {
     kotlin("android")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
-    id("com.diffplug.spotless") version "6.12.1"
+    id("com.diffplug.spotless") version "6.22.0"
 }
 
 android {

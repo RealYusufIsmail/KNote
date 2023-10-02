@@ -2,7 +2,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("com.squareup.sqldelight")
-    id("com.diffplug.spotless") version "6.12.1"
+    id("com.diffplug.spotless") version "6.22.0"
 }
 
 kotlin {
