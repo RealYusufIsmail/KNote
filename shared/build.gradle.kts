@@ -28,7 +28,7 @@ kotlin {
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
         val iosMain by creating {
-            dependencies { implementation("com.squareup.sqldelight:native-driver:1.5.4") }
+            dependencies { implementation("com.squareup.sqldelight:native-driver:1.5.5") }
 
             dependsOn(commonMain)
             iosX64Main.dependsOn(this)
