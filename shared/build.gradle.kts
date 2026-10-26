@@ -15,20 +15,20 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("com.squareup.sqldelight:runtime:1.5.4")
+                implementation("com.squareup.sqldelight:runtime:1.5.5")
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
             }
         }
         val commonTest by getting { dependencies { implementation(kotlin("test")) } }
         val androidMain by getting {
-            dependencies { implementation("com.squareup.sqldelight:android-driver:1.5.4") }
+            dependencies { implementation("com.squareup.sqldelight:android-driver:1.5.5") }
         }
         val androidTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
         val iosMain by creating {
-            dependencies { implementation("com.squareup.sqldelight:native-driver:1.5.4") }
+            dependencies { implementation("com.squareup.sqldelight:native-driver:1.5.5") }
 
             dependsOn(commonMain)
             iosX64Main.dependsOn(this)
